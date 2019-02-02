@@ -12,7 +12,7 @@ use std::process::Command;
 use git2::Repository;
 
 fn main() {
-    println!("cargo:rerun-if-changed=build.rs");
+    //println!("cargo:rerun-if-changed=build.rs");
 
     //// Build SEAL
     let mut build = cc::Build::new();

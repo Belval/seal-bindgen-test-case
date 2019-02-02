@@ -2,7 +2,6 @@
 // Licensed under the MIT license.
 
 #include "seal/smallmodulus.h"
-#include "seal/util/uintarith.h"
 #include "seal/util/common.h"
 #include <stdexcept>
 
@@ -11,46 +10,6 @@ using namespace std;
 
 namespace seal
 {
-    void SmallModulus::save(ostream &stream) const
-    {
-        auto old_except_mask = stream.exceptions();
-        try
-        {
-            // Throw exceptions on std::ios_base::badbit and std::ios_base::failbit
-            stream.exceptions(ios_base::badbit | ios_base::failbit);
-
-            stream.write(reinterpret_cast<const char*>(&value_), sizeof(uint64_t));
-        }
-        catch (const std::exception &)
-        {
-            stream.exceptions(old_except_mask);
-            throw;
-        }
-
-        stream.exceptions(old_except_mask);
-    }
-
-    void SmallModulus::load(istream &stream)
-    {
-        auto old_except_mask = stream.exceptions();
-        try
-        {
-            // Throw exceptions on std::ios_base::badbit and std::ios_base::failbit
-            stream.exceptions(ios_base::badbit | ios_base::failbit);
-
-            uint64_t value;
-            stream.read(reinterpret_cast<char*>(&value), sizeof(uint64_t));
-            set_value(value);
-        }
-        catch (const std::exception &)
-        {
-            stream.exceptions(old_except_mask);
-            throw;
-        }
-
-        stream.exceptions(old_except_mask);
-    }
-
     void SmallModulus::set_value(uint64_t value)
     {
         if (value == 0)
@@ -77,7 +36,7 @@ namespace seal
             uint64_t quotient[3]{ 0, 0, 0 };
 
             // Use a special method to avoid using memory pool
-            divide_uint192_uint64_inplace(numerator, value_, quotient);
+            //divide_uint192_uint64_inplace(numerator, value_, quotient);
 
             const_ratio_[0] = quotient[0];
             const_ratio_[1] = quotient[1];

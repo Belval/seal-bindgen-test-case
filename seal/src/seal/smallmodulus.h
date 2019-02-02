@@ -6,7 +6,6 @@
 #include <cstdint>
 #include <iostream>
 #include <array>
-#include "seal/util/uintcore.h"
 #include "seal/memorymanager.h"
 
 namespace seal

@@ -110,7 +110,7 @@ namespace seal
                 {
                     throw std::out_of_range("signed overflow");
                 }
-#if (SEAL_COMPILER == SEAL_COMPILER_MSVC) && !defined(SEAL_USE_IF_CONSTEXPR)
+#if (SEAL_COMPILER == SEAL_COMPILER_) && !defined(SEAL_USE_IF_CONSTEXPR)
 #pragma warning(push)
 #pragma warning(disable: 4146)
 #endif

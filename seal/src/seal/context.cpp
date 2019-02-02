@@ -3,11 +3,6 @@
 
 #include "seal/context.h"
 #include "seal/util/pointer.h"
-#include "seal/util/polycore.h"
-#include "seal/util/uintarith.h"
-#include "seal/util/uintarithsmallmod.h"
-#include "seal/util/numth.h"
-#include "seal/defaultparams.h"
 #include <utility>
 #include <stdexcept>
 
@@ -30,8 +25,5 @@ namespace seal
             parms.set_random_generator(
                 UniformRandomGeneratorFactory::default_factory());
         }
-
-        first_parms_id_ = parms.parms_id();
-        last_parms_id_ = first_parms_id_;
     }
 }

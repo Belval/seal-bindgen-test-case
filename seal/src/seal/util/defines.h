@@ -75,9 +75,6 @@ namespace seal
 #define SEAL_COMPILER SEAL_COMPILER_GCC
 #endif
 
-// MSVC support
-#include "seal/util/msvc.h"
-
 // clang support
 #include "seal/util/clang.h"
 

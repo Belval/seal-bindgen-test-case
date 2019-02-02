@@ -7,7 +7,6 @@
 #include <memory>
 #include "seal/encryptionparams.h"
 #include "seal/memorymanager.h"
-#include "seal/util/smallntt.h"
 #include "seal/util/pointer.h"
 
 namespace seal
@@ -25,16 +24,6 @@ namespace seal
                 MemoryManager::GetPool()));
         }
 
-        inline auto &first_parms_id() const
-        {
-            return first_parms_id_;
-        }
-
-        inline auto &last_parms_id() const
-        {
-            return last_parms_id_;
-        }
-
     private:
         SEALContext(const SEALContext &copy) = delete;
 
@@ -48,9 +37,5 @@ namespace seal
             MemoryPoolHandle pool);
 
         MemoryPoolHandle pool_;
-
-        parms_id_type first_parms_id_;
-
-        parms_id_type last_parms_id_;
     };
 }
